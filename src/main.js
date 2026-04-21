@@ -225,12 +225,17 @@ const TOOL_PRICES = {
 
 async function fetchFDA(endpoint, searchParams = {}) {
     try {
-        const params = new URLSearchParams();
-        if (searchParams.search) params.set('search', searchParams.search);
-        if (searchParams.limit) params.set('limit', searchParams.limit);
-        if (searchParams.count) params.set('count', searchParams.count);
+        let url = `https://api.fda.gov/drug/${endpoint}.json?`;
+        const queryParts = [];
+        if (searchParams.search) {
+            // FDA API uses + as AND operator and expects literal + in query
+            // Only encode the field values, not the operators
+            queryParts.push(`search=${searchParams.search}`);
+        }
+        if (searchParams.limit) queryParts.push(`limit=${searchParams.limit}`);
+        if (searchParams.count) queryParts.push(`count=${searchParams.count}`);
+        url += queryParts.join('&');
 
-        const url = `https://api.fda.gov/drug/${endpoint}.json?${params}`;
         const resp = await fetch(url);
 
         if (!resp.ok) {
