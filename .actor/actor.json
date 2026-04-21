@@ -1,0 +1,25 @@
+{
+  "actorSpecification": 1,
+  "name": "drug-intelligence-mcp",
+  "title": "Drug Intelligence MCP",
+  "description": "Pharmaceutical drug intelligence for AI agents. Access FDA drug labeling, adverse events, NDC codes, drug interactions, and recall data via openFDA APIs.",
+  "version": "1.0.0",
+  "meta": {
+    "templateId": "standby-node"
+  },
+  "input": "../input_schema.json",
+  "readme": "../README.md",
+  "categories": [
+    "BUSINESS_INTELLIGENCE",
+    "HEALTHCARE"
+  ],
+  "pricing": {
+    "model": "EVENT"
+  },
+  "defaultRunOptions": {
+    "memoryMbytes": 512,
+    "timeoutSecs": 120
+  },
+  "usesStandbyMode": true,
+  "webServerMcpPath": "/mcp"
+}

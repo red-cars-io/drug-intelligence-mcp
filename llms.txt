@@ -1,0 +1,84 @@
+# Drug Intelligence MCP
+
+Pharmaceutical drug intelligence for AI agents. Access FDA drug labeling, adverse events, NDC codes, drug interactions, and recall data via openFDA APIs. No API key required.
+
+## When to call
+
+Use this MCP when you need to:
+- Research drug labeling information (indications, dosage, warnings, active ingredients)
+- Monitor adverse event reports for drug safety signals
+- Verify National Drug Codes (NDC) for formulary or insurance processing
+- Check drug-drug interactions before prescribing
+- Track FDA drug recalls by drug name or manufacturer
+- Perform pharmaceutical due diligence on drug safety profiles
+- Generate drug safety profiles for investment or procurement decisions
+- Access FDA labeling data for clinical decision support
+
+## Tools
+
+| Tool | Price | Description |
+|------|-------|-------------|
+| search_drug_labels | $0.03 | Search FDA drug label database for medication labeling information |
+| get_drug_adverse_events | $0.08 | Search FDA adverse event reporting system for drug safety signals |
+| search_drug_by_ndc | $0.03 | Look up drug information by National Drug Code (NDC) |
+| get_drug_interactions | $0.05 | Check drug-drug interactions and contraindications |
+| search_drug_recalls | $0.03 | Search FDA drug recall database for medication recalls |
+
+## Example AI Prompt
+
+"Get the drug label information for metformin including its indications for Type 2 diabetes, recommended dosage, and any black box warnings."
+
+## Example AI Prompt
+
+"Search FDA adverse event reports for pembrolizumab (Keytruda) in the last 12 months, focusing on serious outcomes like death or life-threatening reactions."
+
+## Example AI Prompt
+
+"Check if there are any known drug interactions between warfarin and amiodarone. What is the severity and clinical management guidance?"
+
+## Example AI Prompt
+
+"Find all FDA Class I recalls on ACE inhibitors (like lisinopril or enalapril) in the last 2 years and show the reason for each recall."
+
+---
+
+## MCP Server Details
+
+**Endpoint:** `https://red-cars--drug-intelligence-mcp.apify.actor/mcp`
+
+## Quick Start
+
+```json
+{
+  "mcpServers": {
+    "drug-intelligence-mcp": {
+      "url": "https://red-cars--drug-intelligence-mcp.apify.actor/mcp"
+    }
+  }
+}
+```
+
+No API key required. AI agents can call tools directly via the MCP protocol.
+
+## Data Sources
+
+| Source | API |
+|--------|-----|
+| FDA Drug Label | api.fda.gov/drug/label.json |
+| FDA Adverse Event | api.fda.gov/drug/event.json |
+| FDA NDC | api.fda.gov/drug/ndc.json |
+| FDA Drug Recall | api.fda.gov/drug/recall.json |
+
+## Pricing
+
+PPE (Pay-Per-Event) — $0.03-$0.08 per tool call. No subscription required.
+
+## Cross-sell Chain
+
+- healthcare-compliance-mcp — Medical device compliance (device ↔ drug overlap)
+- academic-research-mcp — Drug literature search
+- tech-scouting-report-mcp — Pharma R&D intelligence
+
+## SEO Keywords
+
+drug intelligence MCP, FDA drug label API, adverse event reporting, NDC code lookup, drug interaction checker, FDA drug recall, pharmaceutical AI agent, drug safety monitoring, openFDA, no API key needed, AI agent, MCP server, LLM drug research, Claude FDA, Cursor pharmaceutical, drug discovery AI, pharmacovigilance MCP, clinical decision support, drug formulary verification, pharma due diligence, healthcare AI

@@ -1,0 +1,28 @@
+{
+  "title": "Drug Intelligence MCP",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "tool": {
+      "title": "Tool Name",
+      "type": "string",
+      "description": "MCP tool to call",
+      "enum": [
+        "search_drug_labels",
+        "get_drug_adverse_events",
+        "search_drug_by_ndc",
+        "get_drug_interactions",
+        "search_drug_recalls"
+      ],
+      "editor": "select",
+      "prefill": "search_drug_labels"
+    },
+    "params": {
+      "title": "Parameters (JSON)",
+      "type": "object",
+      "description": "Tool parameters as JSON object",
+      "editor": "json",
+      "prefill": {"drug_name": "aspirin", "max_results": 1}
+    }
+  }
+}

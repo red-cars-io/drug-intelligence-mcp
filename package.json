@@ -1,0 +1,15 @@
+{
+  "name": "drug-intelligence-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Drug Intelligence MCP Server for AI agents - FDA drug data via openFDA APIs",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.6.0"
+  }
+}
