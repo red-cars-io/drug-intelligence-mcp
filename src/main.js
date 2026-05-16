@@ -513,14 +513,15 @@ async function handleTool(toolName, params = {}) {
 // HTTP SERVER FOR STANDBY MODE
 // ============================================
 
+// Always call Actor.init() once unconditionally
 await Actor.init();
 
-const isStandby = Actor.config.get('metaOrigin') === 'STANDBY';
+// Check standby AFTER init using env var
+const isStandby = process.env.APIFY_META_ORIGIN === 'STANDBY';
+const PORT = Actor.config.get('containerPort') || process.env.ACTOR_WEB_SERVER_PORT || 3000;
 
 if (isStandby) {
     // Standby mode: start HTTP server for MCP requests
-    const PORT = Actor.config.get('containerPort') || process.env.ACTOR_WEB_SERVER_PORT || 3000;
-
     const server = http.createServer(async (req, res) => {
         // Handle readiness probe
         if (req.headers['x-apify-container-server-readiness-probe']) {
